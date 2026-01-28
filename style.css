@@ -1,81 +1,66 @@
-body{
+body {
+    margin: 0;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    background: radial-gradient(circle, #1e1e1e, #000);
+    font-family: Arial, Helvetica, sans-serif;
 }
-.main-clock-shape{
-    min-height:90vh;
-    min-width:90vh;
-    border:8px solid #000000;
-    border-radius: 50%; 
+
+.clock {
+    width: 400px;
+    height: 400px;
+    border: 10px solid white;
+    border-radius: 50%;
     position: relative;
+    background: #111;
+    box-shadow: 0 0 30px rgba(255,255,255,0.2);
 }
-.numbers{
-    top:50%;
-    left:50%;
+
+.center-dot {
+    width: 12px;
+    height: 12px;
+    background: white;
+    border-radius: 50%;
     position: absolute;
-    font-size: 30px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
 }
-.numbers:nth-child(1){
-    transform:rotate(0deg) translateY(-40vh) rotate(-0deg);
+
+.hand {
+    position: absolute;
+    bottom: 50%;
+    left: 50%;
+    transform-origin: bottom;
+    transform: translateX(-50%);
 }
-.numbers:nth-child(2){
-    transform:rotate(30deg) translateY(-40vh) rotate(-30deg);
+
+.hour {
+    width: 6px;
+    height: 90px;
+    background: white;
+    border-radius: 5px;
 }
-.numbers:nth-child(3){
-    transform:rotate(60deg) translateY(-40vh) rotate(-60deg);
+
+.minute {
+    width: 4px;
+    height: 120px;
+    background: white;
+    border-radius: 5px;
 }
-.numbers:nth-child(4){
-    transform:rotate(90deg) translateY(-40vh) rotate(-90deg);
+
+.second {
+    width: 2px;
+    height: 140px;
+    background: red;
 }
-.numbers:nth-child(5){
-    transform:rotate(120deg) translateY(-40vh) rotate(-120deg);
-}
-.numbers:nth-child(6){
-    transform:rotate(150deg) translateY(-40vh) rotate(-150deg);
-}
-.numbers:nth-child(7){
-    transform:rotate(180deg) translateY(-40vh) rotate(-180deg);
-}
-.numbers:nth-child(8){
-    transform:rotate(210deg) translateY(-40vh) rotate(-210deg);
-}
-.numbers:nth-child(9){
-    transform:rotate(240deg) translateY(-40vh) rotate(-240deg);
-}
-.numbers:nth-child(10){
-    transform:rotate(270deg) translateY(-40vh) rotate(-270deg);
-}
-.numbers:nth-child(11){
-    transform:rotate(300deg) translateY(-40vh) rotate(-300deg);
-}
-.numbers:nth-child(12){
-    transform:rotate(330deg) translateY(-40vh) rotate(-330deg);
-}
-.hour-handle{
-    top:50%;
-    left:50%;
-    position:absolute;
-    background-color: black;
-    width:4px;
-    height:25vh;
-    transform-origin: top center;
-}
-.min-handle{
-    top:50%;
-    left:50%;
-    transform-origin: top center;
-    background-color: black;
-    position:absolute;
-    width:3px;
-    height:30vh;
-}
-.sec-handle{
-    top:50%;
-    left:50%;
-    transform-origin: top center;
-    background-color: black;
-    position:absolute;
-    width:2px;
-    height:35vh;
+
+.numbers span {
+    position: absolute;
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
 }

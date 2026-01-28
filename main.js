@@ -1,19 +1,40 @@
-let hrhandle=document.querySelector(".hour-handle");
-let minhandle=document.querySelector(".min-handle");
-let sechandle=document.querySelector(".sec-handle");
-function updateclk(){
-    let dat=new Date();
-    let hours=dat.getHours();
-    console.log(hours);
-    let mins=dat.getMinutes();
-    let sec=dat.getSeconds();
-    let ms=dat.getMilliseconds();
-    const hourDeg=(hours%12)*30+ (mins/60)*30+ sec*(0.5/60)-90;
-    const minDeg=(mins*6+sec*0.1)-90;
-    const secDeg=(sec*6+ms/1000)-90;
-    hrhandle.style.transform=`rotate(${hourDeg}deg)`;
-    minhandle.style.transform=`rotate(${minDeg}deg)`;
-    sechandle.style.transform=`rotate(${secDeg}deg)`;
+const hourHand = document.querySelector(".hour");
+const minuteHand = document.querySelector(".minute");
+const secondHand = document.querySelector(".second");
+const numbersContainer = document.querySelector(".numbers");
+
+// Create numbers dynamically
+for (let i = 1; i <= 12; i++) {
+    const num = document.createElement("span");
+    num.innerText = i;
+
+    const angle = (i * 30) * (Math.PI / 180);
+    const radius = 170;
+
+    const x = 200 + radius * Math.sin(angle);
+    const y = 200 - radius * Math.cos(angle);
+
+    num.style.left = `${x - 10}px`;
+    num.style.top = `${y - 10}px`;
+
+    numbersContainer.appendChild(num);
 }
-updateclk();
-setInterval(updateclk,50);
+
+function updateClock() {
+    const now = new Date();
+
+    const seconds = now.getSeconds();
+    const minutes = now.getMinutes();
+    const hours = now.getHours();
+
+    const secDeg = seconds * 6;
+    const minDeg = minutes * 6 + seconds * 0.1;
+    const hourDeg = (hours % 12) * 30 + minutes * 0.5;
+
+    secondHand.style.transform = `translateX(-50%) rotate(${secDeg}deg)`;
+    minuteHand.style.transform = `translateX(-50%) rotate(${minDeg}deg)`;
+    hourHand.style.transform = `translateX(-50%) rotate(${hourDeg}deg)`;
+}
+
+setInterval(updateClock, 1000);
+updateClock();
