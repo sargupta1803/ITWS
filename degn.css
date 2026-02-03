@@ -1,22 +1,40 @@
+
 body {
- background-color: yellow;
- margin: 30px;
-border-radius: 5px;
+    background-color: #fff3cd;
+    margin: 40px;
+    padding: 20px;
+    border-radius: 10px;
 }
+
+/* Main heading */
 h1 {
- color: blue;
- text-align: center;
- }
+    color: #0d6efd;
+    text-align: center;
+    text-decoration: underline;
+}
+
+/* Paragraph styling */
 p {
- font-size: 20px;
- }
+    font-size: 20px;
+    line-height: 1.6;
+    text-align: center;
+}
+
+/* Sub heading */
 h2 {
- color: green;
- margin-top: 30px;
- }
+    color: #198754;
+    margin-top: 30px;
+}
+
+/* List styling */
 ul {
- background-color: pink;
- padding: 15px;
- }
+    background-color: #f8d7da;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* List items */
 li {
- margin: 5px ;}
+    margin: 8px;
+    font-size: 18px;
+}
